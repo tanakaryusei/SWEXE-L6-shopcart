@@ -1,0 +1,13 @@
+<h1>
+    カートアイテムページ
+</h1>
+
+<%= form_for @cartitem , url: {action: :create} do |f| %>
+    商品名：<%= Product.find(@product_id).name %><br>
+    価格：<%= Product.find(@product_id).price %><br>
+    <%= f.label :qty, '数量' %>
+    <%= f.text_field :qty %>
+    <%= f.hidden_field :product_id, value: @product_id %>
+    <%= f.hidden_field :cart_id, value: @cart_id %><br>
+    <%= f.submit 'カートに登録する' %>
+<% end %>

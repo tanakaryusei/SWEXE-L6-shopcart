@@ -1,0 +1,13 @@
+<h1>
+    カートページ
+</h1>
+
+<% @cartitems.each do |e| %>
+    <p>
+        商品名：<%= Product.find(e.product_id).name %> &nbsp;
+        価格：<%= Product.find(e.product_id).price %>円 &nbsp;
+        数量：<%= e.qty %>
+        <%= link_to "削除", "/carts/#{e.id}", data:{turbo_method: :delete} %>
+    </p>
+<% end %>
+<%= link_to '商品一覧ページへ', products_path %>
